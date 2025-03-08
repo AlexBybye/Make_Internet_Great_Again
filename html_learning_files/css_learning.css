@@ -1,0 +1,204 @@
+h2 {
+    color: aqua;
+    font-size: 28px;
+}
+
+h3 {
+    color: blue;
+    font-size: 24px;
+}
+
+* {
+    font-size: 16px;
+    color: green;
+}
+
+.oneclass {
+    font-size: 20px;
+}
+
+.twoclass {
+    color: darkorange;
+}
+
+h1 {
+    color: black;
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+#mytitle {
+    border: 3px dashed green;
+}
+
+.box1 {
+    width: 400px;
+    height: 460px;
+    background-color: #ff00ff;
+    flex: 1;
+    float: right;
+}
+
+.box2 {
+    width: 400px;
+    height: 460px;
+    background-image: url("xingheyuzhou_out.png");
+    background-repeat: repeat-y;
+    background-size: contain;
+    flex: 3;
+    float: left;
+
+}
+
+.text1 {
+    text-align: center;
+    text-decoration: overline;
+    color: #1bfff7a8;
+}
+
+.table1 {
+    border: 2px dashed black;
+    border-collapse: collapse;
+    width: 100px;
+    height: 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+}
+
+.box3 {
+    width: 400px;
+    height: 460px;
+    background-color: #1f41ca;
+    flex: 2;
+}
+
+.box4 {
+    width: 40px;
+    height: 60px;
+    background-color: #4ee44e;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.box5 {
+    width: 40px;
+    height: 60px;
+    background-color: #e44e4e;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.box6 {
+    width: 40px;
+    height: 60px;
+    background-color: #e4e44e;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f41ca;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin-left: 10px;
+    border-radius: 15px;
+    box-shadow: #333 5px 5px 5px;
+}
+
+@keyframes RXY {
+    0% {
+        width: 200px;
+        height: 400px;
+        background-color: blue;
+    }
+
+    25% {
+        width: 400px;
+        height: 200px;
+        background-color: red;
+    }
+
+    100% {
+        width: 200px;
+        height: 400px;
+        background-color: green;
+    }
+}
+
+.animation {
+    animation: RXY 5s linear 1s infinite alternate;
+}
+
+.animation:hover {
+    animation-play-state: paused;
+    background-color: aqua;
+}
+
+.box7 {
+    width: 500px;
+    height: 500px;
+    margin: 40px auto;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    animation: breathe 2s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+    0% {
+        opacity: 0.2;
+        box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 1px 2px rgba(18, 190, 84, 0.76);
+    }
+
+    100% {
+        opacity: 1;
+        /* 透明度 */
+        box-shadow: 0 1px 30px rgba(59, 255, 255, 1)
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    /* 手机小于768px加载样式 */
+    .box7 {
+        display: block;
+        background-color: red;
+    }
+
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+
+    /*平板小于768px但小于992px加载样式 */
+    .box7 {
+        display: none;
+        background-color: pink;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    /*电脑大于992px加载样式 */
+    .box7 {
+        display: block;
+        background-color: green;
+    }
+
+}

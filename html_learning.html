@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)file:///D:/Weblearning/html_learning.html -->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>html_learning</title>
+</head>
+
+<body>
+
+    <hr align="center" color="green" width="100%" size="5">
+
+    <h1 align="center">VS_code_Learning</h1>
+    <hr align="center" color="red" width="50%" size="5">
+
+    <h2>前端快捷键</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p>
+    <ul class="disc">
+        <li>!+enter: 生成HTML快捷方式</li>
+        <li>ctrl+·：打开终端</li>
+        <li>alt+shift+f: 格式化代码</li>
+        <li>ctrl+/: 注释代码</li>
+        <li>tab:接受建议</li>
+        <li>ctrl+shift+k:删除行</li>
+        <li>ctrl+z:撤销</li>
+        <li>ctrl+s:保存</li>
+        <li>ctrl+F1:运行（预览网页）</li>
+    </ul>
+    <p></p>
+    <hr align="center" color="green" width="100%" size="5">
+
+    <h1 align="center">HTML的主体学习</h1>
+    <hr align="center" color="red" width="50%" size="5">
+
+    <h2>HTML标签</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p>
+    <h3>声明标签</h3>
+    首先避免HTML乱码，先声明
+
+    其次在body也提编码格式
+
+    <h3>文本标签</h3>
+    <h1></h1>这是标题标签，h1~h6分别是标题大小<br>
+    其中写hn+enter可以快速生成标题标签,仅用于标题可以使得可读性增加<br>
+    本行属性标签写在第一个框里面，分为color width size align<br>
+    其中align表位置，align="left""center""right"，默认居左<br>
+    <p></p>这是段落标签,同理只用在段<br>
+    换行标签<br>不需要闭合标签，不属于分段<br>
+    水平线标签
+    <hr>不需要闭合标签，不属于分段<br>
+    <b>加粗标签</b><br>
+    <i>斜体标签</i><br>
+    <u>下划线标签</u><br>
+    <s>删除线标签</s><br>
+    <mark>高亮标签</mark><br>
+    <h3>非文本标签</h3>
+    <img src="file:///D:/Weblearning/html_learning.html" alt="" width="" height="" title="">
+    图片标签，src为图片路径，alt为图片描述（图片加载失败时的替代文字）,width height为宽高,
+    title为鼠标悬停显示<br>
+    <a href="file:///D:/Weblearning/html_learning.html" target="_self">超链接标签</a> href为跳转的路径(url)，<br>
+    可能是网址，也可能是"./xxx.html ./xxx.img"等<br>
+    target为新窗口打开方式，
+    分为:<br>
+    _blank新窗口打开<br>
+    _self为在当前窗口打开<br>
+    <p></p>
+    <hr>
+    <h2 align="left">列表</h2>
+    一般会在导航页出现<br>
+    <hr align="left" color="black" width="20%" size="3">
+    <h3>有序列表</h3>
+    <p>
+    </p>
+    <ol type="1">排序头还有i,I等
+        <li>有序列表1</li>
+        <li>有序列表2</li>
+        <ol type="a">
+            <li>有序列表2.1</li>
+            <li>有序列表2.2</li>
+        </ol>
+        <li>有序列表3</li>
+    </ol>
+    <p></p>
+    <h3>无序列表</h3>
+    <ul type="disc">排序头：disc实心圆，circle空心圆，square实心方块,none无标记
+        <li>无序列表1</li>
+        <li>无序列表2</li>
+        <ul type="circle">
+            <li>无序列表2.1</li>
+            <li>无序列表2.2</li>
+        </ul>
+        <li>无序列表3</li>
+    </ul>
+    <hr>
+    <h2 align="left">表格</h2>
+    <hr align="left" color="black" width="20%" size="3">
+
+    tr是行标签
+    td是表格标签
+    <table border="1" width="50%" height="50%" align="center">
+        <caption>表格标题</caption>
+    </table>
+    快捷写法：table&gt;tr*2&gt;td*3{None}
+    <hr>
+    <h2 align="left">表单</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <form action="file:///D:/Weblearning/html_learning.html" method="post" name="form1">
+        action为提交路径（服务器地址），method为提交方式（get少量/post大量）<br>
+        <label for="username">用户名：</label>
+        <input type="text" name="username" id="username" placeholder="请输入用户名"><br>
+        <label for="password">密码：</label>
+        <input type="password" name="password" id="password" placeholder="请输入密码"><br>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+        type为按钮类型，value为按钮文字
+    </form>
+    <hr>
+    <h2>元素</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p>
+    <h3>块元素与行内元素</h3>
+    首先，块级元素可以包含内联元素
+    <ul type="disc">
+        <li>常见块级元素： div form h1~h6 hr p table ul
+            (块元素独占一行,可以设置width height)</li>
+        <li>常见内联元素： a b em i span strong 等
+            (内联元素只占本身大小，不可以设置width height)</li>
+        <li>行内块级元素：button img ignore()
+            （不换行可识别宽高）</li>
+    </ul>
+    <p></p>
+    <hr>
+    <h2>HTML5新增标签（基本上先不用，就是下面div标签""东西变成单独标签而已）</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <h3>1:div容器元素</h3>
+    <p>
+        div就是为了增加区块清晰度，以及CSS的插入
+        e.g.
+    </p>
+    <div id="header"></div>头部
+    <div id="nav"></div>导航
+    <div id="article">代表独立完整的内容块（例如论坛帖子，评论等）
+        <div id="section"></div> 这个是定义文章章节页眉页脚的
+    </div>
+    <div id="aside"></div>侧边
+    <div id="footer"></div>底部
+
+    <hr align="center" color="green" width="100%" size="5">
+
+    <h1 align="center">CSS的主体学习</h1>
+    <hr align="center" color="red" width="50%" size="5">
+    <hr>
+    <h2>基础语法</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        style 选择器(更改的元素名) 声明 /style <br>
+        e.g.
+        <style>
+            h4 {
+                font-size: 18px;
+                color: brown;
+                text-align: left;
+            }
+        </style>
+    </p>
+    <h4>Lin_eclipse !</h4>
+    <p></p>
+    <hr>
+    <h2>CSS外部接口</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        之前的格式显然会使得整个HTML混乱不堪，<br>
+        我们可以调用外部接口<br>
+        在head那里去写这行！
+        <link rel="stylesheet" type="text/css" href="./html_learning_files/css_learning.css">
+        href为跳转的路径, 内部./,详细看css_learning.css
+    </p>
+    <hr>
+    <h2>选择器(CSS文件中成立)</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        CSS中选择器分为：
+        全局选择器、元素选择器（p,b,div,a,img等）、类选择器等<br>
+    </p>
+    <h3>全局格式</h3> (所有都会变成一个样子，一般做初始化，后续元素选择器优先级更高,但不会覆盖未规定的条件)
+    * {
+    font-size:30px;
+    color:red;
+    }
+    元素选择器就是*变成标签了而已()
+    <h3>我叫</h3>
+    <h4>Lin_eclipse</h4>
+    <h6 class="twoclass">大家好！</h6>
+
+    <p></p>
+    <p>
+        类选择器（最常见！！）
+    </p>
+    <h5 class="oneclass twoclass">应用端口</h5>
+    下面是CSS中格式
+    .oneclass{
+    width:60px;
+    }
+    注意：类名不能以数字开头,<br>
+    同标签可用多个类选择器，用空格隔开！！
+    <p></p>
+    <p>
+        注意：选择器一般到最后只用类选择器和ID选择器，ID选择器用于仅一份的格式用
+        <b id="mytitle">你好！这是ID的应用端</b>
+        在CSS中：
+        #mytitle{
+        border:3px dashed green;
+        }
+        优先级：行内&gt;ID&gt;类&gt;元素
+        同级要看CSS中执行顺序，厚覆盖前
+    </p>
+    <hr>
+    <h2>字体属性</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        color:rgba(255,0,255,透明度)/#ff00ff 多种方式
+        font-size:字体大小
+        font-weight:字体粗细 100-900（默认400）
+        font-style:字体倾斜与否 italic斜体
+        font-family:字体风格 "微软雅黑"
+    </p>
+    <hr>
+    <h2>背景属性</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <div class="box1"></div>(容器标签：用来做个格式)
+    <div class="box2"></div>
+    <p>
+        background-color:
+        background-image:
+        background-position: 背景图片开始渲染位置
+        包括left right center 以及top center bottom
+        e.g. leeft top
+        background-repeat: 背景图片(重复与否)
+        包括repeat-x/-y repeat no-repeat
+
+        background-size: 背景图片大小
+        其中cover是相围最小大小（有切割情况）
+        contain是相含最大大小（最常见）
+
+    </p>
+    注意包括上面的：所有在CSS写的都可以用style嵌套来在html直接实现
+
+    .box1{
+    width:400px;
+    height:400px;
+    background-color: #ff00ff;
+    }
+    .box2{
+    width:1200px;
+    height:800px;
+    background-image: url("xingheyuzhou_out.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    }
+    <p></p>
+    <hr>
+    <h2>文本属性</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        text-align:对齐方式
+        包括left right center
+
+        text-decoration:文本修饰
+        包括下划线underline 上划线overline 删除线line-through
+
+        text-transform:定义每个单词字母大小写
+        包括:captialize(每个字母首字母大)uppercase（全大）lowercase（全小）
+
+        text-indent:首行缩进
+        一般是30px?
+        另外：
+        我看了，还是用div class这样去调用比较好；html:
+    </p>
+    <div class="text1">
+        AAA星河宇宙建材任总
+    </div>
+    .text1{
+    text-align:center;
+    text-decoration:overline;
+    color:rgba(255,0,255,0.5);
+    }
+    <p></p>
+    <hr>
+    <h2>表格属性</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        table,td:
+        border:表格边框
+        包括：宽窄：1px 实虚：soild dashed 颜色
+        e.g. border:1px soild red;
+
+        table:
+        border-collapse:collapse边框合并
+        width和height当然可以调整！
+        e.g. width:100px; height:50px;
+
+        td:
+        text-align:left right center;
+        vertical-align:top bottom center;
+        padding:5px;这是内边距（和前两行的方案可以二选一）
+        background-color：rgba(255,255,255,0.6)
+
+        表格这比较特殊：除了table,其实还可以把td也这么处理：当然td很多，
+        所以用style可能会更好
+        <style>
+            table,
+            td {
+                border: 3px solid greenyellow;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 89px;
+                height: 78px;
+            }
+
+            td {
+                font-style: italic;
+                font-weight: 700;
+                font-family: Arial, Helvetica, sans-serif;
+                color: rgb(55, 23, 170);
+                text-align: center;
+                vertical-align: center;
+                background-color: rgba(140, 138, 138, 0.5);
+            }
+        </style>
+    </p>
+    <table class="table1">
+        <tbody>
+            <tr>
+                <td>I</td>
+                <td>am</td>
+                <td>Lin_</td>
+                <td>Eclipse</td>
+            </tr>
+            <tr>
+                <td>Wanna</td>
+                <td>unravel</td>
+                <td>recedence</td>
+                <td>ordinarily</td>
+            </tr>
+            <tr>
+                <td>In</td>
+                <td>this</td>
+                <td>imperfect</td>
+                <td>world</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h2>选择器</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <!-- <li>CSS 关系选择器（也称为组合选择器）用于根据元素之间的关系来选择和样式化 HTML 元素。以下是几种常见的 CSS 关系选择器：</li>
+        <li>1. 后代选择器（Descendant Selector）</li>
+        <li>语法：E F</li>
+        <li>描述：选择所有在 E 元素内部的 F 元素。</li>
+        <li>css:
+            <pre>
+                div p {
+                color: blue;
+              }
+              </pre>
+            该选择器会选择所有在 <div> 元素内部的 <p> 元素，并将其文本颜色设置为蓝色。</p>
+            </div>
+        </li>
+        <li>2. 子代选择器（Child Selector）</li>
+        <li>语法：E &gt; F</li>
+        <li>描述：选择所有作为 E 元素直接子元素的 F 元素。</li>
+        <li>css:
+            <pre>              ul &gt; li {
+                list-style-type: none;
+              }
+              </pre>
+            该选择器会选择所有直接嵌套在 <ul> 元素内的 <li> 元素，并移除它们的列表样式。</li>
+                <li>注意：还有几个不太常见的，在此不予介绍</li> -->
+
+    </p>
+    <hr>
+    <h2>盒子模型</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        <li>盒子模型是 CSS 中的一个重要概念，用于描述元素在页面上所占的空间。每个元素都被描绘为一个矩形盒子，这个盒子包含了元素的内容、内边距、边框和外边距。</li>
+        <li>盒子模型包含以下几个部分：</li>
+        <li>1. 内容Content：元素的实际内容，包括文本、图片等。</li>
+        <li>2. 内边距Padding：内容区域与边框之间的空间。</li>
+        <li>3. 边框Border：内边距与外边距之间的空间，用于包围内容区域。</li>
+        <li>4. 外边距Margin：边框与相邻元素之间的空间。（一般透明的）</li>
+        <li>特殊用法：margin：0 auto; 表示左右平均分配，在页面正中央。</li>
+        <li>盒子模型的大小由 width、height、padding、border 和 margin 等属性决定。</li>
+        <li>盒子模型可以通过 width 和 height 属性进行设置。不包括 padding、border 和 margin。</li>
+        <li>padding-left:5px;等</li>
+        <li>border： </li>
+        <li>margin-top：10px;等</li>
+        把盒子模型看作是一个生活中的快递,那么内容部分等同于你买的实物,内边距等同于快递盒子中的泡
+        沫,边框等同于快递盒子,外边距等同于两个快递盒子之间的距离
+    </ul>
+    <h3>弹性盒子模型</h3>大盒子：（默认纵向，display:flex;放在主盒子为水平摆放）子盒子：（flex:占比权重,优先级高于width）
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>(这里可以style集成在html，我写在CSS里)
+    </p>
+    <hr>
+    <h2>浮动</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        <li>float：left、right 和 inherit。</li>
+        <li>说白了有什么用，其实就是可以在标准流上面进行一个叠加</li>
+        浮动的危害：会使得父盒子高度消失，
+        <ul type="circle">
+            <li>常用解决方案：在父盒子写：overflow:hidden</li>
+        </ul>
+    </ul>
+    </p>
+    <hr>
+    <h2>定位</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        <div class="container2">
+            <div class="box4"></div>
+            <div class="box5"></div>
+        </div>
+        <div class="box6"></div>
+        <li>position包括：</li>包括top right bottom left，具体格式:见CSS
+        <li>relative：相对定位，元素相对于其正常位置进行定位。</li>
+        <li>absolute：绝对定位，脱离文档流，会有压盖情况，但是float就两层，absolute设置几层就几层。</li>
+        <li>fixed：固定定位，浏览器怎么滚动他不变位置。</li>
+        <li>注意：脱离文档流</li>
+        <li>绝对是对于具有定位的父元素而言，一般父元素会是个relative,父元素没有咋整？那就针对整个网页进行relative定位了</li>
+    </ul>
+    </p>
+    <hr>
+    <h2>CSS3新特性：圆角与阴影</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        <li>border-radius：30px;圆角属性</li>
+        <li>box-shadow：阴影属性</li>
+        <li>text-shadow：文本阴影属性</li>
+        <li>box-shadow:5px（水平） 5px（竖直） 5px（阴影模糊） #888888（阴影颜色）;这个是阴影属性</li>
+        <li>text-shadow:5px 5px 5px #888888;这个是文本阴影属性</li>
+    </ul>
+    </p>
+    <hr>
+    <h2>动画</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        <li>@keyframes来创建简单的关键帧动画。</li>
+        @keyframes name{
+        0% {
+        css }
+        n% {
+        css }
+        100%{
+        css }
+        }
+        <li>通过是animation</li>
+        <li>animation: name duration timing-function delay iteration-count direction;</li>
+        <li>name：规定需要绑定到选择器的 keyframe 名称。</li>
+        <li>duration：持续时间 秒数</li>
+        <li>timing-function：规定动画的效果速度。ease缓慢 linear匀速 ease-in加速 ease-out减速 ease-in-out先加后减 </li>
+        <li>delay：规定在动画开始之前的延迟。</li>
+        <li>iteration-count：规定动画循环播放的次数。不写就是一次</li>
+        <li>direction：动画播放方向。normal alternate（偶次向前，奇次向后）</li>
+        一个语句包含一堆性质这个
+        e.g. animation: name 5s linear 2s infinite alternate;
+        <li>当鼠标滑过换颜色怎么搞？</li>
+        如果只想本动画这样就
+        .animation:hover就好
+        div:hover{
+        background-color:red;
+        }
+        怎么用？可以把动画暂停来实现
+        div:hover{
+        animation-play-state:paused;
+        }
+        把动画名字作为类名，然后用js来控制
+        <div class="animation"></div>
+        <li>呼吸效果</li>
+        <div class="box7"></div>
+    </ul>
+    </p>
+    <hr>
+    <h2>媒体查询</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <li>最简单的是首先就是放在每个网页前面的meta控制伸缩比</li>
+    <pre>
+           @media screen and (max-width: 768px) {
+
+            /* 手机小于768px加载样式 */
+            body {
+                background-color: red;
+            }
+        }
+        @media screen and (max-width: 992px) and (min-width: 768px) {
+        
+            /*平板小于768px但小于992px加载样式 */
+            body {
+                background-color: pink;
+            }
+        }
+        @media screen and (min-width: 992px) {
+        
+            /*电脑大于992px加载样式 */
+            body {
+                background-color: green;
+        
+            }
+        } 
+        </pre>
+    说白了就是可以在不同设备上显示不同的样式，或者是为了在放缩时防止格式被挤压破坏可以删掉多出来的部分
+    通过js的display:none;来实现
+    </p>
+    <hr>
+    <h2>雪碧图</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <li>雪碧图是将多张小图合并成一张大图，通过background-position来显示不同的小图。</li>
+        <li>雪碧图的优点：减少HTTP请求次数，提高页面加载速度。</li>
+        及时止损，后期用SVG代替
+    </p>
+    <hr>
+    <h2>字体图标</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <li>字体图标是将图标转换为字体，通过font-family来引用。</li>
+        <li>字体图标的优点：减少HTTP请求次数，提高页面加载速度。</li>
+        及时止损，后期用SVG代替
+    </p>
+    <hr align="center" color="green" width="100%" size="5">
+
+    <h1 align="center">JavaScript的主体学习</h1>
+    <hr align="center" color="red" width="50%" size="5">
+    <hr>
+    <h2>基础语法</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        在html里面写js的方法有两种，和CSS基本一致；<br>
+        <li>1. 内部js：在script标签里面写，如576-581示例</li>
+        <li>2. 外部js：在script标签里面写src="xxx.js"</li>
+        <script type="txt/script" src="./javascript_learning.js">
+        </script>
+        <!-- 老生常谈，网络的就src接网址 -->
+        <li>js的语法和C++很像，每行尾加分号</li>
+        <li>js的注释和C++一样，//和/**/</li>
+    </ul>
+    </p>
+    <hr>
+    <h2>关键字</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        <li>var：声明变量</li>
+        <li>const：声明常量</li>
+    </ul>
+    <script type="text/javascript">
+        var a = 1;
+        const b = 2;
+        console.log(a);//这里是输出在控制台
+        document.write(a + b);//这里是输出在页面
+    </script>
+    </p>
+    <hr>
+    <h2>数据类型与符号</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <ul type="disc">
+        <li>js的数据类型有：字符串、数字、布尔、数组、对象（就是一个复合类型的容器）、null（对象为空）、undefined（数值为空）这俩就是初始化能接触</li>
+        其实和python全差不多<br>
+        <li>对象：</li>
+        <script>
+            student = {
+                name: 'Tom',
+                age: 18,
+                gender: 'male'
+            }
+            console.log(typeof student.age); // typeof 来展示类型
+            //加减乘除取余自增减都和C++一样，尤其是自增
+            document.write(student.age++);
+            document.write(++student.age);
+            //区别：严格相等和非严格相等（类型必须相同）
+            console.log(1 == '1'); //true
+            console.log(1 === '1'); //false
+            //布尔运算符||或 &&与 !非
+        </script>
+        <li>js的变量是弱类型的，不需要声明类型，和python一样</li>
+        变量名区分大小写，不能以数字开头，可以有$_1a组合；<br>
+    </ul>
+    </p>
+    <hr>
+    <h2>条件、循环、字符串、数组与函数</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <h3>条件（与C++一致）</h3>
+    <p>
+        <script>
+            var age = 20;
+            if (age >= 18) {
+                console.log('成年');
+            } else {
+                console.log('未成年');
+            }
+            // switch case
+            var num = 3;
+            switch (num) {
+                case 1:
+                    console.log('one');
+                    break;
+                case 2:
+                    console.log('two');
+                    break;
+                case 3:
+                    console.log('three');
+                    break;
+                default:
+                    console.log('other');
+            }
+            // 三元运算符
+            var isAdult = age >= 18 ? '成年' : '未成年';
+            console.log(isAdult);
+        </script>
+    </p>
+    <h3>循环（与C++一致）</h3>
+    <p>
+        <script>
+            // for循环
+            for (var i = 0; i < 5; i++) {
+                console.log(i);
+            }
+            // while循环
+            var j = 0;
+            while (j < 5) {
+                console.log(j);
+                j++;
+            }
+            // do while循环
+            var k = 0;
+            do {
+                console.log(k);
+                k++;
+            } while (k < 5);
+            //break&continue旧事重提
+            //break结束最近的循环整体
+            //continue结束本次循环
+        </script>
+    </p>
+    <h3>字符串</h3>
+    首先单双引号都可以构成字符串，如果要输出一个双引号字符串怎么办呢？
+    比如Lin_eclipse曾说:"我站在巨人的肩膀上"
+    这个时候就要用转义字符：
+    <p>
+        <script>
+            var str1 = 'Lin_eclipse曾说:"我站在巨人的肩膀上"';
+            var str2 = "Lin_eclipse曾说:\"我站在巨人的肩膀上\"";
+            console.log(str1);
+            console.log(str2);
+            //charAt()方法，说白了给下标，传回来值
+            console.log(str1.charAt(3));//（）里面也可以是str1.length对吧
+            //字符串拼接+ 
+            var str3 = 'Lin_eclipse';
+            var str4 = '曾说';
+            var str5 = ':"我站在巨人的肩膀上"';
+            var str6 = str3 + str4 + str5;
+            console.log(str6);
+            //字符串长度注意后面没（）！
+            console.log(str5.length);
+            //substr()方法，截取字符串左边为起始，右边是长度
+            console.log(str6.substr(0, 3));
+            //字符串查找，就是正好相反，这是值去找下标
+            console.log(str6.indexOf('曾'));
+            //trim()方法，去掉字符串两边的空格
+            var str7 = '  Lin_eclipse  ';
+            console.log(str7.trim());
+            //trimLeft()和trimRight()可以单独去掉字符串左边和右边的空格
+            //字符串替换
+            console.log(str6.replace('曾', '一直'));
+            //字符串转数组
+            console.log(str6.split(''));
+
+        </script>
+    </p>
+    <h3>数组</h3>
+    <p>
+        <script>
+            //数组的定义
+            var arr1 = [1, 2, true, '4', 5];
+            var arr2 = new Array(1, 2, 3, 4, 5);//使用构造函数来创建数组
+            console.log(arr1);
+            console.log(arr2);
+            //数组的长度
+            console.log(arr1.length);
+            //数组的查找
+            console.log(arr1.indexOf(3));//我的3在哪？没有就返回-1，有返下标
+            //数组的尾部添加
+            arr1.push(6);
+            console.log(arr1);
+            //unshift()添加第一个
+            arr1.unshift('5');
+            //数组的尾部删除
+            arr1.pop();
+            console.log(arr1);
+            //shift()清除第一个
+            console.log(arr1.shift());
+            //join分隔符设定及转字符串
+            console.log(arr1.join('-'));//这里是用-分隔
+            //加上split直接变字符串
+            console.log(arr1.join('-').split('-'));
+            //数组的截取
+            console.log(arr1.slice(0, 3));
+            //数组的合并
+            var arr4 = [7, 8, 9];
+            var arr3 = arr1.concat(arr2, arr4);
+            console.log(arr3);
+            //数组的排序
+            console.log(arr3.sort());
+            //数组的反转
+            console.log(arr3.reverse());
+            //备用： //数组转json
+            // console.log(JSON.stringify(arr1));
+            // //json转数组
+            // console.log(JSON.parse('["1", "2", "3", "4", "5"]'));
+        </script>
+    </p>
+    <h3>函数</h3>
+    <p>
+        <script>
+            //函数：和python除了关键字外基本一样，比如return后面无效
+            function add(a, b) {
+                return a + b;
+            }
+            console.log(add(1, 2));
+            //函数的匿名定义
+            var sub = function (a, b) {
+                return a - b;
+            }
+            console.log(sub(1, 2));
+            //函数的自调用
+            (function () {
+                console.log('自调用');
+            })();
+            //函数的参数
+            function test(a, b) {
+                console.log(arguments);//这个是参数列表
+                console.log(arguments.length);//这个是参数个数
+            }
+            test(1, 2, 3, 4, 5);
+            //函数的参数扩展args是数组
+            function test3(a, ...args) {
+                console.log(a);
+                console.log(args);
+            }
+            test3(1, 2, 3, 4, 5);
+        </script>
+    </p>
+    <hr>
+    <h2>对象简述</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <script>
+            //对象:其实就是一个复合类型的容器，和C的结构体，python的字典差不多
+            var student = {
+                name: 'Tom',
+                age: 18,
+                advantages: ['handsome', 'rich', 'nice']
+            }
+            console.log(student);
+            //对象的属性访问 . 
+            console.log(student.advantages);
+            for (var i = 0; i < student.advantages.length; i++) {
+                console.log(student.advantages[i]);
+            }
+            //Math对象的使用 :注意了，首字母大写！
+            //其中所有的数字都可以变成变量名，这是当然的
+            Math.ceil(1.1);//向下取整
+            Math.round(1.9);//四舍五入
+            Math.floor(1.9);//向上取整
+            Math.max(Math.abs(1, -2, 3, 4, 5));//abs是绝对值
+            Math.min(1, 2, 3, 4, 5);
+            Math.random();//随机数,0-1之间
+            //如何生成设定范围随机数？////////////////////////////////////////
+            function random(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+            //生成随机整数呢？
+            console.log(random(1, 10));
+            //date对象的使用
+            var today = new Date(); // 获取当前时间
+            console.log(today);
+
+            var year = today.getFullYear(); // 年份
+            var month = today.getMonth() + 1; // 月份（注意+1）
+            var dayOfWeek = today.getDay(); // 星期
+            var hour = today.getHours(); // 小时
+            var minute = today.getMinutes(); // 分钟
+            var second = today.getSeconds(); // 秒
+            // 格式化日期
+            console.log(`${year}-${month}-${today.getDate()} ${hour}:${minute}:${second} 星期${dayOfWeek}`);
+            //倒计时
+            function leftDays() {
+                var today = new Date();
+                var endYear = new Date(today.getFullYear(), 11, 31, 23, 59, 59, 999);//这个可以切换倒计时时间注意月份减一
+                var msPerDay = 24 * 60 * 60 * 1000;
+                var left = Math.round((endYear.getTime() - today.getTime()) / msPerDay);
+                console.log(`距离今年结束还有${Math.floor(left)}天`);
+            }
+            leftDays();
+        </script>
+    </p>
+    <hr>
+    <h2>DOM简述</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>总述
+        <script>
+            //DOM：接口规范，js来操作dom来操纵节点以控制网页
+            //节点类型：document：文档顶层节点 element text comment ：注释
+        </script>
+    </p>
+    <h3>读取与修改元素</h3>
+    <p>
+        <script>
+            //获取元素用getElementById()和getElementsByTagName()和getElementsByClassName()
+            //TagName和CSS对一个标签进行集体操作是一样的，就像读H1标签就全一样
+            var h_t = document.getElementsByTagName('h1');
+            console.log(h_t);
+            //ClassName是在此基础上细分，不同class就可以不一样
+            //怎么区分？如果不是唯一，我们通常会通过顺序，来命名【0】、【1】这样子
+            /////////////////////////////////////////////////////////////////////////
+            //这里是快速复习：说白了这其实是脚本，var的对象是脚本服务的对象，Jscript说白了就是对对象进行操作
+            //对象怎么串联？ var这里定义去通过各种方式去引入，也就是这里说的修改，var定义的东西叫做元素，元素能干啥？
+            //元素有自己的内容，innerHTML（可识别标签，啥标签，哈哈，HTML语句；具体咋回事你看下边）textContent纯文本内容
+            //这个标签讲的都是获取元素
+            <p class='text1' id='div1'>
+                AAA星河宇宙建材任总
+            </p>
+            var text1 = document.getElementsByClassName('text1')[0];
+            console.log(text1);
+            //id是唯一的，不可重复利用
+            var div1 = document.getElementById('div1');
+            console.log(div1);
+            //还有通过对CSS进行操作来改变元素的属性querySelector()和querySelectorAll()
+            //前者和id一样，但只对采用此CSS的第一个元素进行操作//其实也可以当成class来看
+            var nav = document.querySelector('.nav');
+            //后者是对所有采用此CSS的元素进行操作
+            var navs = document.querySelectorAll('.nav');
+            //获取元素的属性//与style无关，故都可以
+            console.log(div1.id);
+            console.log(text1.className);
+            console.log(div1.style);
+            //修改元素的属性(style一定要注意是内联！你单独搞CSS文件他根本提取不出来，这时候就要用attribute来搞了////////////////////////////////)
+            div1.style.color = 'red';
+            div1.style.backgroundColor = 'green';
+            //外显怎么办？（一般都是这个方法，毕竟内联少）
+            var a = document.querySelector('a');
+            console.log(a.getAttribute('href')); // 获取 href 属性
+            a.setAttribute('href', 'https://example.com'); // 设置 href 属性
+            a.removeAttribute('href'); // 移除 href 属性
+        </script>
+    </p>
+    <h3>创建、删除、获取元素列表</h3>
+    <p>
+        <script>
+            //元素列表操作示例
+
+            // 创建元素
+            var ptext = document.createElement('p'); // 创建一个 p 元素
+            ptext.innerHTML = '这是一个段落'; // 设置内容
+            document.body.appendChild(ptext); // 将 p 元素添加到 body 中
+            // 删除元素
+            document.body.removeChild(ptext); // 从 body 中移除 p 元素
+            // 创建文本节点
+            var newcontent = document.createTextNode('hello, Lin_eclipse!'); // 创建文本节点
+            // 创建属性节点
+            var newattribute = document.createAttribute('name'); // 创建属性节点
+            newattribute.value = 'Hello?'; // 设置属性值
+            // 添加属性节点到元素
+            ptext.setAttributeNode(newattribute); // 将属性节点添加到 p 元素中
+            // 获取所有 p 元素
+            var pElements = document.getElementsByTagName('p'); // 获取所有 p 元素
+            console.log(pElements); // 输出 HTMLCollection
+            // 遍历所有 p 元素
+            for (var i = 0; i < pElements.length; i++) {
+                console.log(pElements[i].innerHTML); // 输出每个 p 元素的内容
+            }
+            // 创建多个元素并添加到页面
+            var newDiv = document.createElement('div'); // 创建一个 div 元素
+            newDiv.innerHTML = '这是一个新 div'; // 设置内容
+            document.body.appendChild(newDiv); // 将 div 元素添加到 body 中
+
+            // 获取所有 div 元素
+            var divElements = document.getElementsByTagName('div'); // 获取所有 div 元素
+            console.log(divElements); // 输出 HTMLCollection
+            // 遍历所有 div 元素
+            for (var i = 0; i < divElements.length; i++) {
+                console.log(divElements[i].innerHTML); // 输出每个 div 元素的内容
+            }
+        </script>
+    </p>
+    <hr>
+    <h2>Element简述</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <div class="boxxx" id="root">Yoxi!</div>
+    <script>
+        //Element是DOM中的基础元素，可以对元素进行属性操作，事件操作等
+        var root = document.getElementById('root');
+        //添加class
+        root.classList.add('new-class');
+        //删除class
+        root.classList.remove('new-class');
+        //切换class:有就删，没有就添
+        root.classList.toggle('new-class');
+        //判断class是否存在
+        if (root.classList.contains('new-class')) {
+            console.log('new-class存在');
+        } else {
+            console.log('new-class不存在');
+        }
+        //获取元素的内容
+        console.log(root.innerHTML);
+        //获取并设置元素的文本内容(可识别标签)//比如如果是a href ="http:"直接会生成链接，而不会作为字符串
+        console.log(root.innerHTML = '<a href="http://baidu.com">千百度</a>');
+    </script>
+    </p>
+    <h3>Element创建、修改位置</h3>
+    <p>
+        <script>
+            var boxxx = document.getElementByClassName('boxxx')[0];
+            //元素位置，写等号就能改咯（不包括border margin
+            console.log(boxxx.clientWidth + 'px');
+            console.log(boxxx.clientHeight + 'px');
+            //元素位置，写等号就能改（包括border margin）
+            console.log(boxxx.offsetWidth + 'px');
+            console.log(boxxx.offsetHeight + 'px');
+            //有关父级的位置：
+            console.log(div.offsetLeft); // 获取左偏移量
+            console.log(div.offsetTop); // 获取上偏移量
+            //获取屏幕高度
+            console.log(document.documentElement.clientHeight);
+            //获取页面内容高度
+            console.log(document.body.clientHeight);
+            //获取滚动高度
+            console.log(document.documentElement.scrollTop);//这是垂直的
+            //scrollLeft就是水平滚动条了
+        </script>
+        <hr>
+    <h2>CSS延伸操作</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+
+</body>
+
+</html>
