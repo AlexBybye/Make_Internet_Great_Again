@@ -963,12 +963,189 @@
             console.log(document.documentElement.scrollTop);//这是垂直的
             //scrollLeft就是水平滚动条了
         </script>
-        <hr>
+    </p>
+    <hr>
     <h2>Jscript来操作CSS</h2>
     <hr align="left" color="black" width="20%" size="3">
     <p>
-        
-        
+        其实这里我们前面已经接触过了：之前的setAttribute()和style都是可以操作CSS的
+        <script>
+            //我建议现在改成这两种：
+            //这里引用前文内容：
+            //
+            //还有通过对CSS进行操作来改变元素的属性querySelector()和querySelectorAll()
+            //前者和id一样，但只对采用此CSS的第一个元素进行操作//其实也可以当成class来看
+            var nav = document.querySelector('.nav');
+            //后者是对所有采用此CSS的元素进行操作
+            var navs = document.querySelectorAll('.nav');
+            //获取元素的属性//与style无关，故都可以
+            console.log(div1.id);
+            console.log(text1.className);
+            console.log(div1.style);
+            //修改元素的属性(style一定要注意是内联！你单独搞CSS文件他根本提取不出来，这时候就要用attribute来搞了////////////////////////////////)
+            div1.style.color = 'red';
+            div1.style.backgroundColor = 'green';
+            //外显怎么办？（一般都是这个方法，毕竟内联少，当然我现在觉得也不一定了哈哈）
+            //这里selector一个a 实际上指的就是第一个<a>标签
+            var a = document.querySelector('a');
+            console.log(a.getAttribute('href')); // 获取 href 属性
+            a.setAttribute('href', 'https://example.com'); // 设置 href 属性
+            a.removeAttribute('href'); // 移除 href 属性
+            var boxxx = document.getElementById('boxxx');
+            //
+            //修改CSS
+            boxxx.style.backgroundColor = 'green';
+            boxxx.style.color = 'white';
+            boxxx.style.fontSize = '20px';
+            //获取CSS
+            console.log(window.getComputedStyle(boxxx, null).backgroundColor);
+        </script>
+    </p>
+    <hr>
+    <h2>事件处理</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    <h3>HTML 事件</h3>
+    缺点：html js 没分开，我写的也闹心
+    <!-- <button onClick="clickHandler">
+            我是按钮
+        </button>
+        <script>
+            function clickHandler() {
+                console.log('按钮被点击了');
+            }
+
+        </script> -->
+    <h3>DOM 0级事件</h3>
+    缺点是只能绑定一个事件
+    <button id="btn">
+        我是按钮
+    </button>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            console.log('按钮被点击了');
+        }
+    </script>
+    <h3>DOM 2级事件</h3>
+    最好的方案
+    <button id="btn0">
+        我是按钮
+    </button>
+    <script>
+        var btn0 = document.getElementById('btn0');
+        btn0.addEventListener('click', function () {
+            console.log('按钮被点击了');
+        })
+    </script>
+    </p>
+    <hr>
+    <h2>鼠标事件</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <button id="btn1">
+            单击
+        </button>
+        <script>
+            var btn1 = document.getElementById('btn1');
+            btn1.addEventListener('click', function (e) {
+                console.log('单击事件：', e.clientX, e.clientY);
+            })
+        </script>
+        <button id="btn2">
+            双击
+        </button>
+        <script>
+            var btn2 = document.getElementById('btn2');
+            btn2.addEventListener('dblclick', function (e) {
+                console.log('双击事件：', e.clientX, e.clientY);
+            })
+            // 注意：在 Chrome 和 Firefox 上，双击事件并不会在元素上触发，而是在元素的子元素上触发。
+            // 所以在 Chrome 和 Firefox 上，要在元素上添加事件来处理双击事件，
+            // 而在 IE 上，双击事件在元素上会触发两次单击事件。
+        </script>
+        <style>
+            .box8 {
+                width: 100px;
+                height: 100px;
+                background-color: #acbe2f;
+            }
+
+            .box9 {
+                width: 100px;
+                height: 100px;
+                background-color: #be2fac;
+            }
+
+            .box10 {
+                width: 100px;
+                height: 100px;
+                background-color: #2facbe;
+            }
+        </style>
+    <div class="box8" id="box8"></div>
+    <div class="box9" id="box9"></div>
+    <div class="box10" id="box10"></div>
+    <script>
+        var box8 = document.getElementById('box8');
+        var box9 = document.getElementById('box9');
+        var box10 = document.getElementById('box10');
+        box8.onmousemove = function (e) {
+            console.log('鼠标移动事件：', e.clientX, e.clientY);
+        }
+        box9.mouseenter = function (e) {
+            console.log('鼠标进入事件：', e.clientX, e.clientY);
+        }
+        //mouseover和他的区别是进入子节点over会再次触发此事件
+        box10.mouseleave = function (e) {
+            console.log('鼠标离开事件：', e.clientX, e.clientY);
+        }
+        //mouseout和他的区别是离开父节点out会再次触发此事件
+        //我的建议还是enter leave 毕竟子元素也可以enter leave 来控制
+    </script>
+    </p>
+    <hr>
+    <h2>事件对象</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        其实就是上文的function（e）里面的e
+        在上文的格式中，我们完全可以通过e.target.XX 来改变发生了某一操作事件后的元素
+        比如e.target.innerHTML="点完后变成这个"
+        <hr>
+        preventDefault()
+        当你点击一个链接时，浏览器会自动带你去那个链接的地址，这是它的默认行为。
+        preventDefault() 就是告诉浏览器：“别自动跳转，我想自己处理这个点击事件”。
+        // 点击链接时，阻止自动跳转
+        document.querySelector('a').addEventListener('click', function(event) {
+        event.preventDefault(); // 阻止自动跳转
+        console.log('链接被点击了，但不会跳转');
+        // 这里可以写你自己的逻辑，比如显示一个确认框
+        });
+        stopPropagation()
+        当存在父子元素，比如说
+    <div class="parent">
+        <a href="http://baidu.com" id="child">子链接</a>
+        <button id="btn3">子按钮</button>
+    </div>
+    <script>
+        var parent = document.querySelector('.parent');
+        var btn3 = document.getElementById('btn3');
+        var child = document.getElementById('child');
+        btn3.addEventListener('click', function (e) {
+            console.log('按钮被点击了');
+            e.stopPropagation(); // 阻止事件传播父元素
+        });
+        child.addEventListener('click',function(e){
+            e.preventDefault();
+            console.log('子链接被点击了，但不会跳转');
+        })
+    </script>
+    </p>
+    <hr>
+    <h2>键盘事件</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+
 
 </body>
 
