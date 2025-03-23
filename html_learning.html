@@ -1135,7 +1135,7 @@
             console.log('按钮被点击了');
             e.stopPropagation(); // 阻止事件传播父元素
         });
-        child.addEventListener('click',function(e){
+        child.addEventListener('click', function (e) {
             e.preventDefault();
             console.log('子链接被点击了，但不会跳转');
         })
@@ -1145,8 +1145,470 @@
     <h2>键盘事件</h2>
     <hr align="left" color="black" width="20%" size="3">
     <p>
+        onkeydown/up && keyCode===13
+        <input type="text" id="username2">
+        <script>
+            var username = documnet.getElementById("username2");
+            username.onkeyup = function (e) {
+                console.log(e.target.value);//控制台打印输入内容
+                //onkeydown是按下触发 onkeyup是松开时触发
+            }
+        </script>
+        <input type='text' id="password2">
+        <script>
+            var password = documnet.getElementById("password2");
+            password.onkeyup = function (e) {
+                if (e.keyCode === 13) {
+                    console.log('回车键被按下');
+                }
+                //记住keyCode===13是回车键//////////////////////////////////////////////////
 
+            }
+        </script>
+    </p>
+    <hr>
+    <h2>表单事件</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        oninput是实时输入触发
+        <input type='text' id="username3">
+        <script>
+            username.oninput = function (e) {
+                console.log(e.target.value);
+            }  
+        </script>
+        onchange在失去焦点（鼠标离开并点击其余位置）或者回车触发
+        <input type='text' id="password3">、
+        <script>
+            password.onchange = function (e) {
+                console.log(e.target.value);
+            }
+        </script>
+        reset和submit!!////////////////////////////////////////////////////////////////////////
+    <form id="form" action="服务器地址" method="post">
+        <label for="username">用户名：</label>
+        <input type="text" id="username" name="username">
 
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password">
+
+        <button type="reset" id="reset_button">重置</button>
+        <button type="submit" id="submit_button">提交</button>
+    </form>
+
+    <script>
+        // 获取表单元素
+        const form = document.getElementById('form');
+        const resetButton = document.getElementById('reset_button');
+        const submitButton = document.getElementById('submit_button');
+
+        // 为重置按钮添加点击事件监听器
+        resetButton.addEventListener('click', function () {
+            form.reset(); // 调用表单的reset方法重置表单
+            console.log('表单已重置');
+        });
+
+        // 为提交按钮添加点击事件监听器
+        submitButton.addEventListener('click', function (e) {
+            e.preventDefault(); // 阻止表单默认提交行为
+            console.log('提交按钮被点击');
+            submitHandle(); // 调用自定义的提交处理函数
+        });
+
+        // 定义表单提交处理函数
+        function submitHandle() {
+            // 在这里可以添加自定义的表单提交逻辑
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            console.log('用户名：', username);
+            console.log('密码：', password);
+
+            // 可以在这里添加表单验证逻辑
+            if (!username || !password) {
+                alert('请输入用户名和密码！');
+                return;
+            }
+
+            // 如果验证通过，可以在这里提交表单数据
+            // 例如使用fetch API发送POST请求
+            /*
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('提交成功：', data);
+            })
+            .catch(error => {
+                console.error('提交失败：', error);
+            });
+            */
+        }
+    </script>
+    </p>
+    <hr>
+    <h2>事件代理：父元素写子元素的监听函数</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+
+        <ui id="list">
+            <li>好处就是</li>
+            <li>不用给每个</li>
+            <li>分别去添加</li>
+            <li>后续自动添加</li>
+            <li>也可以直接实现监听</li>
+        </ui>
+        <script>
+            var list = document.getElementById('list');
+            list.addEventListener('click', function (e) {
+                if (e.target.tagName === 'LI') {
+                    console.log('点击了列表项，内容是：', e.target.innerHTML);
+                }
+                /////tagname就是大写的表签名
+            })
+        </script>
+    </p>
+    <hr>
+    <h2>setTimeout()定时器</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <script>
+            // setTimeout() 用于在指定的毫秒数后执行指定的代码
+            // setTimeout() 只执行一次
+            setTimeout(function () {
+                console.log('3 秒后执行');
+            }, 3000);
+
+            name = "Alexbybye"
+            var user2 = {
+                name: "Lin_eclipse",
+                getName: function () {
+                    setTimeout(function () {
+                        console.log(this.name);
+                    }, 1000)
+                    console.log(this.name);
+                }
+            }
+            //setTimeout()是异步的，所以会先执行console.log(this.name)再执行setTimeout()里面的代码
+            //此外this为全局而非此变量内部
+
+            // setInterval() 用于每隔指定的毫秒数重复执行指定的代码
+            // setInterval() 会一直重复执行，直到 clearInterval() 被调用或窗口被关闭
+            var count = 0;
+            var timer = setInterval(function () {
+                count++;
+                console.log('每隔 1 秒执行一次，已执行', count, '次');
+                if (count >= 5) {
+                    clearInterval(timer); // 清除定时器
+                }
+            }, 1000);
+        </script>
+    </p>
+    <hr>
+    <h2>防抖&节流</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        防抖
+        有时候大抢购之类的就需要这个优化
+        <script>
+            //滚动事件监听
+            // window.onscroll = scrollHandle
+            //function scrollHandle() {
+            //      var scrollTop = document.documentElement.scrollTop;
+            //打印滚动高度
+            // }
+            //打印太多了，注释掉了
+
+            //优化方案：按照定时器去搞/////////////////////////////////
+            //fn 函数 //delay 延迟时间
+            function debounce(fn, delay) {
+                var timer = null;
+                return function () {
+                    if (timer) {
+                        clearTimeout(timer)
+                    }
+                    timer = setTimeout(fn, delay)
+                }
+            }
+            window.onscroll = debounce(scrollHandle, 300)
+            function scrollHandle() {
+                var scrollTop = document.documentElement.scrollTop;
+            }
+        </script>
+        节流
+        <script>
+            function throttle(fn, delay) {
+                var flag = true;
+                return function () {
+                    if (!flag) {
+                        return false;
+                    }
+                    flag = false;
+                    setTimeout(function () {
+                        fn();
+                        flag = true;
+                    }, delay)
+                }
+            }
+            //说白了就是两个优化函数，可以套在滚动监听的外面
+            //这个就可以放在上面debounce同样位置
+
+            //这两个用途：
+            // 搜索框input：节流
+            // resize页面适配：防抖
+        </script>
+    </p>
+    <hr align="center" color="green" width="100%" size="5">
+
+    <h1 align="center">New Frontier:ES6+</h1>
+    <hr align="center" color="red" width="50%" size="5">
+    <hr>
+    <h2>var let const 三兄弟</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        var无法穿透函数的function壁，以下级别皆可以
+        let为花括号级别作用域
+        不可重复声明
+        比如for循环就很适合let
+        const：不变常量，和let的作用域同为花括号级别，不可重复声明
+        很多时候const最常用
+    </p>
+    <hr>
+    <h2>解构赋值:降低代码可读性，我不准备用</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <script>
+            var user = {
+                name: "Alex",
+                age: 20
+            }
+            const { name, age } = user;
+        </script>
+    </p>
+    <hr>
+    <h2>字符串的技巧：Unicode表示法</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        1:for of 用法：
+        <script>
+            var str3 = "Lin_eclipse";
+            for (let i of str3) {
+                console.log(i);
+            }
+        </script>
+        2: 模板字符串
+        <script>
+            let url = "www.baidu.com";
+            let l1 = `<a href="${url}">百度</a>`;
+        </script>
+        <hr>
+    <h2>对象的技巧（仅收录觉得用得上的）</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        3:属性名可用[其他属性]代替，这样这个属性这里用的就是其他属性的属性值表达式
+        <script>
+            let username1 = "Lin_eclipse";
+            let user2 = {
+                [username1]: "Alex",
+                age: 21
+            }
+        </script>
+    </p>
+    <hr>
+    <h2>函数的技巧：箭头函数</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        <script>
+            var add = function (x, y) {
+                return x + y;
+            }
+            var add2 = (x, y) => x + y;
+            var add3 = (x, y) => {
+                const z = 3.141
+                return x + y + z;
+            }
+            ///////////////常见应用场景：简化匿名函数/////////////////////
+            //匿名函数一般就是只用得到一次的函数，就懒得命名了，直接就function(参数){操作;}了
+            //这种情况可以(参数)=>{操作;}
+            //记不记得之前的var that =this;
+            name = "Alexbybye"
+            var user2 = {
+                name: "Lin_eclipse",
+                getName: function () {
+                    setTimeout(function () {
+                        console.log(this.name);
+                    }, 1000)
+                    console.log(this.name);
+                }
+            }
+            //这里里面想调用Lin_eclipse是调用外侧的Alexbybye的，想调用Lin？
+            //那就得var that =this ，很麻烦
+            //但是function是匿名函数！所以我们可以这样做：
+            var user2 = {
+                name: "Lin_eclipse",
+                getName(){
+                    setTimeout(() => {
+                        console.log(this.name);
+                    }, 1000)
+                }
+            }
+        </script>
+    </p>
+    <!-- <hr>
+    <h2>Set</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p>
+    <hr>
+    <h2>Promise</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p>
+    <hr>
+    <h2>Async</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p>
+    <hr>
+    <h2>Class</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p>
+    <hr>
+    <h2>Module</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+    </p> -->
+    <hr>
+    <h2>Set</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        Set 是一种数据结构，用于存储唯一的值或对象。它不允许重复的元素。<br>
+        常见方法：<br>
+        - new Set(): 创建一个空的 Set<br>
+        - add(value): 向 Set 中添加一个元素<br>
+        - delete(value): 从 Set 中删除一个元素<br>
+        - has(value): 检查 Set 中是否存在某个元素<br>
+        - size: 获取 Set 中元素的数量<br>
+        例如：<br>
+        <script>
+            let mySet = new Set();
+            mySet.add(1);
+            mySet.add("hello");
+            console.log(mySet.has(1)); // 输出 true
+            console.log(mySet.size); // 输出 2
+        </script>
+    </p>
+    <hr>
+    <h2>Promise</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        Promise 是一个表示异步操作最终完成或失败的对象。<br>
+        状态：<br>
+        - pending: 初始状态，既未成功也未失败<br>
+        - fulfilled: 操作成功完成<br>
+        - rejected: 操作失败<br>
+        常见方法：<br>
+        - then(): 用于注册成功回调函数<br>
+        - catch(): 用于注册失败回调函数<br>
+        - finally(): 无论成功或失败都会执行的回调函数<br>
+        创建：<br>
+        <script>
+            let myPromise = new Promise(function (resolve, reject) {
+                // 异步操作
+                if (/* 操作成功 */) {
+                    resolve(result);
+                } else {
+                    reject(error);
+                }
+            });
+        </script>
+        使用：<br>
+        <script>
+            myPromise.then(result => {
+                console.log(result);
+            }).catch(error => {
+                console.error(error);
+            });
+        </script>
+    </p>
+    <hr>
+    <h2>Async</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        Async/Await 是基于 Promise 的更高层的抽象，用于更简洁地处理异步操作。<br>
+        async 函数：<br>
+        - 使用 async 关键字定义的函数<br>
+        - 总是返回一个 Promise 对象<br>
+        - 内部可以使用 await 关键字暂停执行，等待 Promise 解析<br>
+        例如：<br>
+        <script>
+            async function myAsyncFunction() {
+                try {
+                    let result = await myPromise;
+                    console.log(result);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            myAsyncFunction();
+        </script>
+    </p>
+    <hr>
+    <h2>Class</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        Class 是一种创建对象的模板，用于定义具有特定属性和方法的对象。<br>
+        定义：<br>
+        <script>
+            class MyClass {
+                constructor() {
+                    // 初始化对象
+                }
+                myMethod() {
+                    // 方法定义
+                }
+            }
+        </script>
+        使用：<br>
+        <script>
+            let obj = new MyClass();
+            obj.myMethod();
+        </script>
+        继承：<br>
+        <script>
+            class SubClass extends MyClass {
+                constructor() {
+                    super();
+                    // 子类初始化
+                }
+                // 子类方法
+            }
+        </script>
+    </p>
+    <hr>
+    <h2>Module</h2>
+    <hr align="left" color="black" width="20%" size="3">
+    <p>
+        Module 是一种组织代码的方式，用于将代码分割成独立的、可复用的模块。<br>
+        导出：<br>
+        - export keyword: 用于导出变量、函数或类<br>
+        例如：<br>
+        <script>
+            export const myVar = 10;
+            export function myFunction() {
+                // 函数定义
+            }
+        </script>
+        导入：<br>
+        - import keyword: 用于导入其他模块中的变量、函数或类<br>
+        例如：<br>
+        <script>
+            import { myVar, myFunction } from './myModule.js';
+            myFunction();
+        </script>
+    </p>
 </body>
 
 </html>
