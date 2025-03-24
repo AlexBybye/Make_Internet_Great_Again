@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <!-- saved from url=(0041)file:///D:/Weblearning/html_learning.html -->
+<html lang="zh-CN">
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <title>html_learning</title>
 </head>
 
@@ -66,7 +67,7 @@
     title为鼠标悬停显示<br>
     <a href="file:///D:/Weblearning/html_learning.html" target="_self">超链接标签</a> href为跳转的路径(url)，<br>
     可能是网址，也可能是"./xxx.html ./xxx.img"等<br>
-    target为新窗口打开方式，
+    target为新窗口打开方式<br>
     分为:<br>
     _blank新窗口打开<br>
     _self为在当前窗口打开<br>
@@ -1148,7 +1149,7 @@
         onkeydown/up && keyCode===13
         <input type="text" id="username2">
         <script>
-            var username = documnet.getElementById("username2");
+            var username = document.getElementById("username2");
             username.onkeyup = function (e) {
                 console.log(e.target.value);//控制台打印输入内容
                 //onkeydown是按下触发 onkeyup是松开时触发
@@ -1156,7 +1157,7 @@
         </script>
         <input type='text' id="password2">
         <script>
-            var password = documnet.getElementById("password2");
+            var password = document.getElementById("password2");
             password.onkeyup = function (e) {
                 if (e.keyCode === 13) {
                     console.log('回车键被按下');
@@ -1173,6 +1174,7 @@
         oninput是实时输入触发
         <input type='text' id="username3">
         <script>
+            var username =document.getElementById("username3");
             username.oninput = function (e) {
                 console.log(e.target.value);
             }  
@@ -1180,6 +1182,7 @@
         onchange在失去焦点（鼠标离开并点击其余位置）或者回车触发
         <input type='text' id="password3">、
         <script>
+            var password = document.getElementById("password3");
             password.onchange = function (e) {
                 console.log(e.target.value);
             }
@@ -1409,7 +1412,7 @@
         3:属性名可用[其他属性]代替，这样这个属性这里用的就是其他属性的属性值表达式
         <script>
             let username1 = "Lin_eclipse";
-            let user2 = {
+            let user3 = {
                 [username1]: "Alex",
                 age: 21
             }
@@ -1433,7 +1436,7 @@
             //这种情况可以(参数)=>{操作;}
             //记不记得之前的var that =this;
             name = "Alexbybye"
-            var user2 = {
+            var user4 = {
                 name: "Lin_eclipse",
                 getName: function () {
                     setTimeout(function () {
@@ -1445,7 +1448,7 @@
             //这里里面想调用Lin_eclipse是调用外侧的Alexbybye的，想调用Lin？
             //那就得var that =this ，很麻烦
             //但是function是匿名函数！所以我们可以这样做：
-            var user2 = {
+            var user5 = {
                 name: "Lin_eclipse",
                 getName(){
                     setTimeout(() => {
@@ -1455,31 +1458,6 @@
             }
         </script>
     </p>
-    <!-- <hr>
-    <h2>Set</h2>
-    <hr align="left" color="black" width="20%" size="3">
-    <p>
-    </p>
-    <hr>
-    <h2>Promise</h2>
-    <hr align="left" color="black" width="20%" size="3">
-    <p>
-    </p>
-    <hr>
-    <h2>Async</h2>
-    <hr align="left" color="black" width="20%" size="3">
-    <p>
-    </p>
-    <hr>
-    <h2>Class</h2>
-    <hr align="left" color="black" width="20%" size="3">
-    <p>
-    </p>
-    <hr>
-    <h2>Module</h2>
-    <hr align="left" color="black" width="20%" size="3">
-    <p>
-    </p> -->
     <hr>
     <h2>Set</h2>
     <hr align="left" color="black" width="20%" size="3">
@@ -1509,22 +1487,24 @@
         - pending: 初始状态，既未成功也未失败<br>
         - fulfilled: 操作成功完成<br>
         - rejected: 操作失败<br>
-        常见方法：<br>
+        常见方法
         - then(): 用于注册成功回调函数<br>
         - catch(): 用于注册失败回调函数<br>
         - finally(): 无论成功或失败都会执行的回调函数<br>
-        创建：<br>
-        <script>
+       如果不使用会是这样：<br>
+        <!-- <script>
             let myPromise = new Promise(function (resolve, reject) {
-                // 异步操作
-                if (/* 操作成功 */) {
+                // 模拟异步操作
+        let success = true; // 假设操作成功
+                if (success) {
                     resolve(result);
                 } else {
+                    let error = "操作失败！";
                     reject(error);
                 }
             });
-        </script>
-        使用：<br>
+        </script> -->
+        使用则会简化成这样：<br>
         <script>
             myPromise.then(result => {
                 console.log(result);
